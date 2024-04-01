@@ -1,2 +1,2 @@
 /.env
-!/2-docker/deploy.sh
+/2-docker/deploy.sh

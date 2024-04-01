@@ -7,3 +7,6 @@ run-terraform:
 
 destroy-terraform:
 	@terraform -chdir=./0-terraform/ destroy -auto-approve -var "do_token=${DO_PAT}" -var "project_name=sample"
+
+run-ansible:
+	@
