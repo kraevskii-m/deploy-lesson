@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  server:
+    image: registry.digitalocean.com/medvedik/dumb_api
+    restart: always
+    ports:
+      - '5000:5000'
