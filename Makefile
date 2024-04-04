@@ -9,4 +9,5 @@ destroy-terraform:
 	@terraform -chdir=./0-terraform/ destroy -auto-approve -var "do_token=${DO_PAT}" -var "project_name=sample"
 
 run-ansible:
-	@
+	@ansible-playbook -i ./3-ansible/hosts.ini ./3-ansible/install-docker.yml; \
+	ansible-playbook -i ./3-ansible/hosts.ini ./3-ansible/run-project.yml -vvv

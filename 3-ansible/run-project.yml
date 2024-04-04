@@ -1,0 +1,23 @@
+- name: Deploy Clickhouse with Docker Compose
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Copy docker-compose file to remote
+      copy:
+        src: ./docker-compose.yml
+        dest: ~/
+        owner: root
+        mode: '0644'
+        force: true
+    - name: Docker Login
+      community.docker.docker_login:
+        registry_url: registry.digitalocean.com
+        username: kramihm@gmail.com
+        password:
+        reauthorize: true
+    - name: Run Docker Compose
+      community.docker.docker_compose_v2:
+        project_src: ~/
+        state: present
+        recreate: always
+        pull: always
